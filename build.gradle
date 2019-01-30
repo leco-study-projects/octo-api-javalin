@@ -20,6 +20,11 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
+    // Koin for Kotlin apps
+    compile 'org.koin:koin-core:1.0.2'
+    // Testing
+    testCompile 'org.koin:koin-test:1.0.2'
+
     // Javalin base configuration
     implementation 'io.javalin:javalin:2.6.0'
     api 'org.slf4j:slf4j-simple:1.7.25'
