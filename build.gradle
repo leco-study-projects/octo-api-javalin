@@ -9,6 +9,7 @@ plugins {
     id "org.flywaydb.flyway" version "5.2.4"
 }
 
+
 group 'co.l3co'
 version '1.0-SNAPSHOT'
 

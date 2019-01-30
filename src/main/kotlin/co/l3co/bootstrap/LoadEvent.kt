@@ -1,25 +1,29 @@
-//package co.l3co.bootstrap
-//
-//import co.l3co.domain.Event
-//import com.beust.klaxon.Klaxon
-//import java.io.File
-//import co.l3co.configuration.buildSessionFactory as sessionFactory
-//
-//val file = System.getenv("EVENT_BOOTSTRAP_PATH")
-//    ?: "/Users/leco/astudio/octo-api-javalin/src/main/resources/bootstrap/event.json"
-//
-//fun buildEvent(): Event {
-//    val rawJson = StringBuilder()
-//    File(file).forEachLine { rawJson.append(it) }
-//    val event = Klaxon().parse<Event>(rawJson.toString())!!
-//    return event
-//}
-//
-//fun load() {
-//
-//    val session = sessionFactory()!!.openSession()
-//    val transaction = session.beginTransaction()
-//    session.save(buildEvent())
-//    transaction.commit()
-//    session.close()
-//}
+package co.l3co.bootstrap
+
+import co.l3co.dao.contracts.EventDAO
+import co.l3co.dao.contracts.IssueDAO
+import co.l3co.dao.contracts.UserDAO
+import co.l3co.domain.Event
+import co.l3co.domain.Issue
+import co.l3co.domain.User
+import org.koin.standalone.KoinComponent
+import org.koin.standalone.inject
+
+class LoadEvent : KoinComponent {
+
+    val eventDAO by inject<EventDAO>()
+    val issueDAO by inject<IssueDAO>()
+    val userDAO by inject<UserDAO>()
+
+    fun load() {
+        val event = Event(null, null, "edited")
+        val eventSaved = eventDAO.save(event)
+
+        val issue = Issue(number = 1, comments = 1, title = "First Commit", state = "open", event = eventSaved)
+        val issueSaved = issueDAO.save(issue)
+
+        val user = User(issue = issueSaved, login = "leco")
+        userDAO.save(user)
+    }
+}
+

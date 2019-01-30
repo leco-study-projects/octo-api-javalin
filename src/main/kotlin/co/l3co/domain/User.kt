@@ -9,40 +9,40 @@ data class User(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    val id: UUID?,
+    val id: UUID? = null,
     @OneToOne
     @JoinColumn(name = "issue_id")
-    val issue: Issue?,
+    val issue: Issue? = null,
     @Column(name = "gists_url")
-    val gistsUrl: String?,
+    val gistsUrl: String? = null,
     @Column(name = "repos_url")
-    val reposUrl: String?,
+    val reposUrl: String? = null,
     @Column(name = "following_url")
-    val followingUrl: String?,
+    val followingUrl: String? = null,
     @Column(name = "starred_url")
-    val starredUrl: String?,
+    val starredUrl: String? = null,
     @Column(name = "login")
-    val login: String?,
+    val login: String? = null,
     @Column(name = "followers_url")
-    val followersUrl: String?,
+    val followersUrl: String? = null,
     @Column(name = "type")
-    val type: String?,
+    val type: String? = null,
     @Column(name = "url")
-    val url: String?,
+    val url: String? = null,
     @Column(name = "subscriptions_url")
-    val subscriptionsUrl: String?,
+    val subscriptionsUrl: String? = null,
     @Column(name = "received_events_url")
-    val receivedEventsUrl: String?,
+    val receivedEventsUrl: String? = null,
     @Column(name = "avatar_url")
-    val avatarUrl: String?,
+    val avatarUrl: String? = null,
     @Column(name = "events_url")
-    val eventsUrl: String?,
+    val eventsUrl: String? = null,
     @Column(name = "site_admin")
-    val siteAdmin: Boolean?,
+    val siteAdmin: Boolean? = null,
     @Column(name = "git_hub_id")
-    val gitHubId: Int?,
+    val gitHubId: Int? = null,
     @Column(name = "node_id")
-    val nodeId: String?,
+    val nodeId: String? = null,
     @Column(name = "organizations_url")
-    val organizationsUrl: String?
+    val organizationsUrl: String? = null
 )

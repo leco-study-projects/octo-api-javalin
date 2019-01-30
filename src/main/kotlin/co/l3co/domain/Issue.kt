@@ -9,40 +9,40 @@ data class Issue(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    val id: UUID?,
+    val id: UUID? = null,
     @Column(name = "comments")
-    val comments: Int?,
+    val comments: Int? = null,
     @Column(name = "closed_at")
-    val closedAt: String?,
+    val closedAt: String? = null,
     @Column(name = "created_at")
-    val createdAt: String?,
+    val createdAt: String? = null,
     @Column(name = "title")
-    val title: String?,
+    val title: String? = null,
     @Column(name = "url")
-    val url: String?,
+    val url: String? = null,
     @Column(name = "labels_url")
-    val labelsUrl: String?,
+    val labelsUrl: String? = null,
     @Column(name = "author_association")
-    val authorAssociation: String?,
+    val authorAssociation: String? = null,
     @Column(name = "number")
-    val number: Int?,
+    val number: Int? = null,
     @Column(name = "updated_at")
-    val updatedAt: String?,
+    val updatedAt: String? = null,
     @Column(name = "events_url")
-    val eventsUrl: String?,
+    val eventsUrl: String? = null,
     @Column(name = "comments_url")
-    val commentsUrl: String?,
+    val commentsUrl: String? = null,
     @Column(name = "repository_url")
-    val repositoryUrl: String?,
+    val repositoryUrl: String? = null,
     @Column(name = "git_hub_id")
-    val gitHubId: Int?,
+    val gitHubId: Int? = null,
     @Column(name = "state")
-    val state: String?,
+    val state: String? = null,
     @OneToOne
     @JoinColumn(name = "event_id")
-    val event: Event?,
+    val event: Event? = null,
     @OneToOne(mappedBy = "issue", cascade = [CascadeType.ALL])
-    val user: User?,
+    val user: User? = null,
     @Column(name = "node_id")
-    val nodeId: String?
+    val nodeId: String? = null
 )
