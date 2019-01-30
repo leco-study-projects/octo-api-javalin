@@ -34,7 +34,7 @@ Octo Events is an application that listens to Github Events via webhooks and exp
         "state":"open", 
         "comments":0, 
         "created_at": "", 
-        "updated_at":"2019-01-"28T20":"17":55Z", 
+        "updated_at":"2019-01-28T20:17:55Z", 
         "closed_at":null, 
         "author_association":"CONTRIBUTOR"
     }
