@@ -2,11 +2,12 @@ package co.l3co.dao.implementation
 
 import co.l3co.configuration.HibernateConfiguration
 import co.l3co.dao.contracts.IssueDAO
+import co.l3co.domain.Event
 import co.l3co.domain.Issue
 import java.util.*
 
 class IssueDAOImpl(val hibernate: HibernateConfiguration) : IssueDAO {
-    override fun save(s: Issue): Issue {
+    override fun save(s: Issue): Issue? {
         val session = hibernate.buildSessionFactory()!!.openSession()
         val transaction = session.beginTransaction()
         val saved = session.save(s) as UUID
@@ -15,11 +16,14 @@ class IssueDAOImpl(val hibernate: HibernateConfiguration) : IssueDAO {
         return findById(saved)
     }
 
-    override fun findById(id: UUID): Issue {
+    override fun findById(id: UUID): Issue? {
         val query = hibernate.buildSessionFactory()!!
             .openSession().createQuery("from Issue where id=:id")
         query.setParameter("id", id)
-        return query.uniqueResult() as Issue
+
+        query.setParameter("id", id)
+        val result = query.uniqueResult()
+        return if (result != null) result as Issue else null
     }
 
     override fun deleteById(id: UUID) {

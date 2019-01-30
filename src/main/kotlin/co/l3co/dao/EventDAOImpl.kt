@@ -1,4 +1,4 @@
-package co.l3co.dao.implementation
+package co.l3co.dao
 
 import co.l3co.configuration.HibernateConfiguration
 import co.l3co.dao.contracts.EventDAO
@@ -14,7 +14,7 @@ class EventDAOImpl(val hibernate: HibernateConfiguration) : EventDAO {
         return query.resultList as List<Event>
     }
 
-    override fun save(s: Event): Event {
+    override fun save(s: Event): Event? {
         val session = hibernate.buildSessionFactory()!!.openSession()
         val transaction = session.beginTransaction()
         val saved = session.save(s) as UUID
@@ -23,11 +23,12 @@ class EventDAOImpl(val hibernate: HibernateConfiguration) : EventDAO {
         return findById(saved)
     }
 
-    override fun findById(id: UUID): Event {
+    override fun findById(id: UUID): Event? {
         val query = hibernate.buildSessionFactory()!!
             .openSession().createQuery("from Event where id=:id")
         query.setParameter("id", id)
-        return query.uniqueResult() as Event
+        val result = query.uniqueResult()
+        return if (result != null) result as Event else null
     }
 
     override fun deleteById(id: UUID) {
