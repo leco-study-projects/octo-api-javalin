@@ -1,7 +1,7 @@
 package co.l3co.resource
 
 import co.l3co.service.contracts.EventService
-import com.sun.jdi.request.EventRequest
+import com.leco.kotlinocto.resources.request.EventRequest
 import io.javalin.Context
 
 class EventResource(private val eventService: EventService) {

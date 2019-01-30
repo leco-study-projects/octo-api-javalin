@@ -1,7 +1,8 @@
 package co.l3co.service.contracts
 
+import com.leco.kotlinocto.resources.request.EventRequest
 import com.leco.kotlinocto.resources.response.EventResponse
-import com.sun.jdi.request.EventRequest
+
 
 interface EventService {
 

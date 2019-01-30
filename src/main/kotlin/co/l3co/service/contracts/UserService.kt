@@ -1,7 +1,7 @@
 package co.l3co.service.contracts
 
-import co.l3co.domain.User
+import com.leco.kotlinocto.resources.response.UserResponse
 
 interface UserService {
-    fun findByLogin(login: String): List<User>
+    fun findByLogin(login: String): List<UserResponse?>
 }
