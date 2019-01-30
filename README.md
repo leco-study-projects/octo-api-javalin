@@ -46,6 +46,13 @@ Octo Events is an application that listens to Github Events via webhooks and exp
 
 This project exposes the events received from the webhook configured in github. 
 
+####  Branches life cycle
+
+This is the life cycle of the branches that were created for this project.
+
+![Octo](img/branch.png)
+
+
 #### Hibernate configuration
 
 Change database information in `hibernate.xml`
@@ -56,7 +63,6 @@ Change database information in `hibernate.xml`
 <property name="hibernate.connection.username">sa</property>
 <property name="hibernate.connection.password">sa</property>
 <property name="show_sql">true</property>
-
 ```
 
 
