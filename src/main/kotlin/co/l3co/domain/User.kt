@@ -5,61 +5,44 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "contributor")
-class User {
+data class User(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    var id: UUID? = null
-
+    val id: UUID?,
     @OneToOne
     @JoinColumn(name = "issue_id")
-    var issue: Issue? = null
-
-    @Column(name="gists_url")
-    var gistsUrl: String? = null
-
-    @Column(name="repos_url")
-    var reposUrl: String? = null
-
-    @Column(name="following_url")
-    var followingUrl: String? = null
-
-    @Column(name="starred_url")
-    var starredUrl: String? = null
-
-    @Column(name="login")
-    var login: String? = null
-
-    @Column(name="followers_url")
-    var followersUrl: String? = null
-
-    @Column(name="type")
-    var type: String? = null
-
-    @Column(name="url")
-    var url: String? = null
-
-    @Column(name="subscriptions_url")
-    var subscriptionsUrl: String? = null
-
-    @Column(name="received_events_url")
-    var receivedEventsUrl: String? = null
-
-    @Column(name="avatar_url")
-    var avatarUrl: String? = null
-
-    @Column(name="events_url")
-    var eventsUrl: String? = null
-
-    @Column(name="site_admin")
-    var siteAdmin: Boolean? = null
-
-    @Column(name="git_hub_id")
-    var gitHubId: Int? = null
-
-    @Column(name="node_id")
-    var nodeId: String? = null
-
-    @Column(name="organizations_url")
-    var organizationsUrl: String? = null
-}
+    val issue: Issue?,
+    @Column(name = "gists_url")
+    val gistsUrl: String?,
+    @Column(name = "repos_url")
+    val reposUrl: String?,
+    @Column(name = "following_url")
+    val followingUrl: String?,
+    @Column(name = "starred_url")
+    val starredUrl: String?,
+    @Column(name = "login")
+    val login: String?,
+    @Column(name = "followers_url")
+    val followersUrl: String?,
+    @Column(name = "type")
+    val type: String?,
+    @Column(name = "url")
+    val url: String?,
+    @Column(name = "subscriptions_url")
+    val subscriptionsUrl: String?,
+    @Column(name = "received_events_url")
+    val receivedEventsUrl: String?,
+    @Column(name = "avatar_url")
+    val avatarUrl: String?,
+    @Column(name = "events_url")
+    val eventsUrl: String?,
+    @Column(name = "site_admin")
+    val siteAdmin: Boolean?,
+    @Column(name = "git_hub_id")
+    val gitHubId: Int?,
+    @Column(name = "node_id")
+    val nodeId: String?,
+    @Column(name = "organizations_url")
+    val organizationsUrl: String?
+)

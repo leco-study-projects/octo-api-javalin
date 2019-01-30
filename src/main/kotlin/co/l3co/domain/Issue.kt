@@ -5,62 +5,44 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "issue")
-class Issue {
-
+data class Issue(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    var id: UUID? = null
-
+    val id: UUID?,
     @Column(name = "comments")
-    var comments: Int? = null
-
+    val comments: Int?,
     @Column(name = "closed_at")
-    var closedAt: String? = null
-
+    val closedAt: String?,
     @Column(name = "created_at")
-    var createdAt: String? = null
-
+    val createdAt: String?,
     @Column(name = "title")
-    var title: String? = null
-
+    val title: String?,
     @Column(name = "url")
-    var url: String? = null
-
+    val url: String?,
     @Column(name = "labels_url")
-    var labelsUrl: String? = null
-
+    val labelsUrl: String?,
     @Column(name = "author_association")
-    var authorAssociation: String? = null
-
+    val authorAssociation: String?,
     @Column(name = "number")
-    var number: Int? = null
-
+    val number: Int?,
     @Column(name = "updated_at")
-    var updatedAt: String? = null
-
+    val updatedAt: String?,
     @Column(name = "events_url")
-    var eventsUrl: String? = null
-
+    val eventsUrl: String?,
     @Column(name = "comments_url")
-    var commentsUrl: String? = null
-
+    val commentsUrl: String?,
     @Column(name = "repository_url")
-    var repositoryUrl: String? = null
-
+    val repositoryUrl: String?,
     @Column(name = "git_hub_id")
-    var gitHubId: Int? = null
-
+    val gitHubId: Int?,
     @Column(name = "state")
-    var state: String? = null
-
+    val state: String?,
     @OneToOne
     @JoinColumn(name = "event_id")
-    var event: Event? = null
-
+    val event: Event?,
     @OneToOne(mappedBy = "issue", cascade = [CascadeType.ALL])
-    var user: User? = null
-
+    val user: User?,
     @Column(name = "node_id")
-    var nodeId: String? = null
-}
+    val nodeId: String?
+)

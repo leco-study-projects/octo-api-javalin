@@ -5,16 +5,13 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "event")
-class Event {
-
+data class Event(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    var id: UUID? = null
-
+    val id: UUID?,
     @OneToOne(mappedBy = "event", cascade = [CascadeType.ALL])
-    var issue: Issue? = null
-
+    val issue: Issue?,
     @Column(name = "action")
-    var action: String? = null
-}
+    val action: String?
+)

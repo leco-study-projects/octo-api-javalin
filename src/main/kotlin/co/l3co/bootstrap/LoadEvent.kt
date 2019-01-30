@@ -1,39 +1,25 @@
-package co.l3co.bootstrap
-
-import co.l3co.domain.Event
-import co.l3co.domain.Issue
-import co.l3co.domain.User
-import co.l3co.configuration.buildSessionFactory as sessionFactory
-
-fun buildEvent(): Event {
-    var event = Event()
-    event.action = "edited"
-
-    var issue = Issue()
-    issue.authorAssociation = "l3co"
-    issue.comments = 1
-    issue.title = "test create issue"
-    issue.number = 1
-    issue.state = "open"
-
-    var user = User()
-    user.login = "l3co"
-
-    user.issue = issue
-
-    issue.event = event
-    issue.user = user
-
-    event.issue = issue
-
-    return event
-}
-
-fun load() {
-
-    val session = sessionFactory()!!.openSession()
-    val transaction = session.beginTransaction()
-    session.save(buildEvent())
-    transaction.commit()
-    session.close()
-}
+//package co.l3co.bootstrap
+//
+//import co.l3co.domain.Event
+//import com.beust.klaxon.Klaxon
+//import java.io.File
+//import co.l3co.configuration.buildSessionFactory as sessionFactory
+//
+//val file = System.getenv("EVENT_BOOTSTRAP_PATH")
+//    ?: "/Users/leco/astudio/octo-api-javalin/src/main/resources/bootstrap/event.json"
+//
+//fun buildEvent(): Event {
+//    val rawJson = StringBuilder()
+//    File(file).forEachLine { rawJson.append(it) }
+//    val event = Klaxon().parse<Event>(rawJson.toString())!!
+//    return event
+//}
+//
+//fun load() {
+//
+//    val session = sessionFactory()!!.openSession()
+//    val transaction = session.beginTransaction()
+//    session.save(buildEvent())
+//    transaction.commit()
+//    session.close()
+//}
