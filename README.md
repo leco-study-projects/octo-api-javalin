@@ -110,7 +110,7 @@ $ docker run --name=octo -d -p 5432:5432  -e POSTGRES_PASSWORD=sa -e POSTGRES_US
 
 ```shell
 $ export APPLICATION_PORT=8080 #BY DEFAULT IS 7000
-$ export HIBERNATE_CONFIGURATION=8080
+$ export HIBERNATE_CONFIGURATION=hibernate-file-path-if-you-cant-change.xml
 ```
 
 
