@@ -11,8 +11,15 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    // Javalin base configuration
     implementation 'io.javalin:javalin:2.6.0'
     api 'org.slf4j:slf4j-simple:1.7.25'
+
+    // Hibernate
+    implementation 'org.hibernate:hibernate-core:5.4.0.Final'
+    // Postgres
+    runtimeOnly 'org.postgresql:postgresql:42.2.5'
 }
 
 compileKotlin {
