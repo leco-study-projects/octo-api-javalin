@@ -11,6 +11,8 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'io.javalin:javalin:2.6.0'
+    api 'org.slf4j:slf4j-simple:1.7.25'
 }
 
 compileKotlin {
