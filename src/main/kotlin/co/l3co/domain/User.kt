@@ -1,5 +1,6 @@
 package co.l3co.domain
 
+import com.leco.kotlinocto.resources.response.UserResponse
 import java.util.*
 import javax.persistence.*
 
@@ -45,4 +46,17 @@ data class User(
     val nodeId: String? = null,
     @Column(name = "organizations_url")
     val organizationsUrl: String? = null
-)
+) {
+    fun convertToDomain(): UserResponse? {
+        return UserResponse(
+            starredUrl = starredUrl,
+            login = login,
+            type = type,
+            url = url,
+            avatarUrl = avatarUrl,
+            eventsUrl = eventsUrl,
+            siteAdmin = siteAdmin,
+            id = id.toString()
+        )
+    }
+}

@@ -1,5 +1,6 @@
 package co.l3co.domain
 
+import com.leco.kotlinocto.resources.response.EventResponse
 import java.util.*
 import javax.persistence.*
 
@@ -15,7 +16,11 @@ data class Event(
     @Column(name = "action")
     val action: String? = null
 ) {
-
-    init {
+    fun convertToResponse(): EventResponse {
+        return EventResponse(
+            id = id.toString(),
+            action = action,
+            issue = issue!!.convertToResponse()
+        )
     }
 }

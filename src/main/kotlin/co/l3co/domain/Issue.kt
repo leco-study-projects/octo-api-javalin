@@ -1,5 +1,6 @@
 package co.l3co.domain
 
+import com.leco.kotlinocto.resources.response.IssueResponse
 import java.util.*
 import javax.persistence.*
 
@@ -45,4 +46,21 @@ data class Issue(
     val user: User? = null,
     @Column(name = "node_id")
     val nodeId: String? = null
-)
+) {
+    fun convertToResponse(): IssueResponse? {
+        return IssueResponse(
+            comments = comments,
+            closedAt = closedAt,
+            createdAt = createdAt,
+            title = title,
+            authorAssociation = authorAssociation,
+            number = number,
+            updatedAt = updatedAt,
+            repositoryUrl = repositoryUrl,
+            state = state,
+            user = user!!.convertToDomain(),
+            nodeId = nodeId,
+            id = id.toString()
+        )
+    }
+}

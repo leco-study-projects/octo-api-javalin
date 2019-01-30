@@ -41,6 +41,8 @@ dependencies {
     // https://mvnrepository.com/artifact/junit/junit
     testCompile 'junit:junit:4.12'
 
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
+    api 'com.fasterxml.jackson.core:jackson-annotations:2.9.8'
 }
 
 compileKotlin {
