@@ -36,7 +36,11 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql:42.2.5'
 
     // Json Parse
-//    implementation 'com.beust:klaxon:5.0.1'
+    // implementation 'com.beust:klaxon:5.0.1'
+
+    // https://mvnrepository.com/artifact/junit/junit
+    testCompile 'junit:junit:4.12'
+
 }
 
 compileKotlin {
