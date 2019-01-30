@@ -150,3 +150,10 @@ $ --------- db
 $ ------------ migration
 $ ---------------------- V1__Create_Basic_Table.sql
 ```
+
+> Apply configuration
+
+```shell
+$  ./gradlew flywayMigrate -i
+```
+
