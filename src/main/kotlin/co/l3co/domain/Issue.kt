@@ -41,7 +41,7 @@ data class Issue(
     val state: String? = null,
     @OneToOne
     @JoinColumn(name = "event_id")
-    val event: Event? = null,
+    var event: Event? = null,
     @OneToOne(mappedBy = "issue", cascade = [CascadeType.ALL])
     val user: User? = null,
     @Column(name = "node_id")

@@ -12,6 +12,9 @@ class EventServiceImpl(private val eventDAO: EventDAO) : EventService {
     }
 
     override fun save(eventRequest: EventRequest) {
-        eventDAO.save(eventRequest.convertToDomain())
+        val event = eventRequest.convertToDomain()
+        event.issue!!.event = event
+        event.issue!!.user!!.issue = event.issue
+        eventDAO.save(event)
     }
 }

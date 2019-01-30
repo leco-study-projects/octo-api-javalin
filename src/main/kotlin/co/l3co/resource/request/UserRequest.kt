@@ -1,29 +1,12 @@
 package com.leco.kotlinocto.resources.request
 
 import co.l3co.domain.User
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
 
-object UserRequest {
-    fun convertToDomain(): User? {
-        return User(
-            gistsUrl = gistsUrl,
-            reposUrl = reposUrl,
-            followingUrl = followingUrl,
-            starredUrl = starredUrl,
-            login = login,
-            followersUrl = followersUrl,
-            type = type,
-            url = url,
-            subscriptionsUrl = subscriptionsUrl,
-            receivedEventsUrl = receivedEventsUrl,
-            avatarUrl = avatarUrl,
-            eventsUrl = eventsUrl,
-            siteAdmin = siteAdmin,
-            gitHubId = gitHubId,
-            nodeId = nodeId,
-            organizationsUrl = organizationsUrl
-        )
-    }
+@JsonIgnoreProperties(ignoreUnknown = true)
+class UserRequest {
 
     @JsonProperty("gists_url")
     val gistsUrl: String? = null
@@ -39,6 +22,9 @@ object UserRequest {
 
     @JsonProperty("login")
     val login: String? = null
+
+    @JsonProperty("gravatar_id")
+    val gravatarId: String? = null
 
     @JsonProperty("followers_url")
     val followersUrl: String? = null
@@ -75,4 +61,25 @@ object UserRequest {
 
     @JsonProperty("organizations_url")
     val organizationsUrl: String? = null
+
+    fun convertToDomain(): User? {
+        return User(
+            gistsUrl = gistsUrl,
+            reposUrl = reposUrl,
+            followingUrl = followingUrl,
+            starredUrl = starredUrl,
+            login = login,
+            followersUrl = followersUrl,
+            type = type,
+            url = url,
+            subscriptionsUrl = subscriptionsUrl,
+            receivedEventsUrl = receivedEventsUrl,
+            avatarUrl = avatarUrl,
+            eventsUrl = eventsUrl,
+            siteAdmin = siteAdmin,
+            gitHubId = gitHubId,
+            nodeId = nodeId,
+            organizationsUrl = organizationsUrl
+        )
+    }
 }

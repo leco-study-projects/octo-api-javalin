@@ -3,6 +3,8 @@ package co.l3co.dao
 import co.l3co.configuration.HibernateConfiguration
 import co.l3co.dao.contracts.EventDAO
 import co.l3co.domain.Event
+import org.hibernate.annotations.Cascade
+import org.hibernate.annotations.CascadeType
 import java.util.*
 
 class EventDAOImpl(val hibernate: HibernateConfiguration) : EventDAO {
@@ -14,6 +16,7 @@ class EventDAOImpl(val hibernate: HibernateConfiguration) : EventDAO {
         return query.resultList as List<Event>
     }
 
+    @Cascade(CascadeType.SAVE_UPDATE)
     override fun save(s: Event): Event? {
         val session = hibernate.buildSessionFactory()!!.openSession()
         val transaction = session.beginTransaction()

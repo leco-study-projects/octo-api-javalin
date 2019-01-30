@@ -11,7 +11,7 @@ data class Event(
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     val id: UUID? = null,
-    @OneToOne(mappedBy = "event", cascade = [CascadeType.ALL])
+    @OneToOne(mappedBy = "event", cascade = [CascadeType.ALL, CascadeType.MERGE])
     val issue: Issue? = null,
     @Column(name = "action")
     val action: String? = null

@@ -1,9 +1,12 @@
 package com.leco.kotlinocto.resources.request
 
 import co.l3co.domain.Issue
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
 
-object IssueRequest {
+@JsonIgnoreProperties(ignoreUnknown = true)
+class IssueRequest {
 
     @JsonProperty("comments")
     val comments: Int? = null
@@ -17,11 +20,26 @@ object IssueRequest {
     @JsonProperty("title")
     val title: String? = null
 
+    @JsonProperty("labels")
+    val labels: Any? = null
+
+    @JsonProperty("locked")
+    val locked: Any? = null
+
+    @JsonProperty("assignees")
+    val assignees: Any? = null
+
+    @JsonProperty("assignee")
+    val assignee: Any? = null
+
+    @JsonProperty("milestone")
+    val milestone: Any? = null
+
     @JsonProperty("url")
     val url: String? = null
 
-    @JsonProperty("labelsUrl")
-    val labels_url: String? = null
+    @JsonProperty("labels_url")
+    val labelsUrl: String? = null
 
     @JsonProperty("author_association")
     val authorAssociation: String? = null
@@ -63,7 +81,7 @@ object IssueRequest {
             createdAt = createdAt,
             title = title,
             url = url,
-            labelsUrl = labels_url,
+            labelsUrl = labelsUrl,
             authorAssociation = authorAssociation,
             number = number,
             updatedAt = updatedAt,

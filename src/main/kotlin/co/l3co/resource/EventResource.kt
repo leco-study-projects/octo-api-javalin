@@ -7,7 +7,10 @@ import io.javalin.Context
 class EventResource(private val eventService: EventService) {
 
     fun post(ctx: Context) {
-        eventService.save(ctx.body<EventRequest>())
+//        println(ctx.body())
+        val event = ctx.body<EventRequest>()
+        println(event)
+        eventService.save(event)
         ctx.status(201)
     }
 

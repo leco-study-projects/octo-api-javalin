@@ -10,7 +10,11 @@ import co.l3co.resource.EventResource
 import co.l3co.resource.IssueResource
 import co.l3co.resource.UserResource
 import co.l3co.service.contracts.EventService
+import co.l3co.service.contracts.IssueService
+import co.l3co.service.contracts.UserService
 import co.l3co.service.implementation.EventServiceImpl
+import co.l3co.service.implementation.IssueServiceImpl
+import co.l3co.service.implementation.UserServiceImpl
 import org.koin.dsl.module.module
 
 val octoModule = module {
@@ -21,6 +25,8 @@ val octoModule = module {
     single { EventDAOImpl(get()) as EventDAO }
     // SERVICE INJECT
     single { EventServiceImpl(get()) as EventService }
+    single { UserServiceImpl(get()) as UserService }
+    single { IssueServiceImpl(get()) as IssueService }
     // RESOURCE INJECT
     single { EventResource(get()) }
     single { IssueResource(get()) }

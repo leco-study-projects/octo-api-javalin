@@ -13,7 +13,7 @@ data class User(
     val id: UUID? = null,
     @OneToOne
     @JoinColumn(name = "issue_id")
-    val issue: Issue? = null,
+    var issue: Issue? = null,
     @Column(name = "gists_url")
     val gistsUrl: String? = null,
     @Column(name = "repos_url")

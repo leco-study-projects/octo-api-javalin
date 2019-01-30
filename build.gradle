@@ -35,6 +35,8 @@ dependencies {
     // Postgres
     runtimeOnly 'org.postgresql:postgresql:42.2.5'
 
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8"
+
     // Json Parse
     // implementation 'com.beust:klaxon:5.0.1'
 
@@ -53,7 +55,7 @@ compileTestKotlin {
 }
 
 flyway {
-    url = 'jdbc:postgresql://localhost:5432/octo2'
+    url = 'jdbc:postgresql://localhost:5432/octo4'
     user = 'sa'
     password = 'sa'
 }
