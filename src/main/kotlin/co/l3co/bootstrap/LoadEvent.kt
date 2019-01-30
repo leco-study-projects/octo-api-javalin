@@ -11,9 +11,9 @@ import org.koin.standalone.inject
 
 class LoadEvent : KoinComponent {
 
-    val eventDAO by inject<EventDAO>()
-    val issueDAO by inject<IssueDAO>()
-    val userDAO by inject<UserDAO>()
+    private val eventDAO by inject<EventDAO>()
+    private val issueDAO by inject<IssueDAO>()
+    private val userDAO by inject<UserDAO>()
 
     fun load() {
         val event = Event(null, null, "edited")
